@@ -31,7 +31,7 @@
         android:layout_height="@dimen/item_height_normal"
         android:layout_marginLeft="@dimen/margin_large"
         android:layout_marginRight="@dimen/margin_large"
-        android:layout_marginTop="@dimen/dp_120">
+        android:layout_marginTop="@dimen/dp_100">
 
         <ImageView
             android:id="@+id/img_account"
@@ -150,7 +150,8 @@
             android:layout_height="wrap_content"
             android:text="@string/check_login"
             android:textColor="@color/top_bar_normal_bg"
-            android:checked="false"/>
+            android:checked="false"
+            tools:ignore="SpUsage" />
 
     </LinearLayout>
 
@@ -163,9 +164,11 @@
         android:layout_marginTop="@dimen/margin_huge"
         android:paddingBottom="@dimen/margin_small"
         android:paddingTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/dp_20"
         android:text="@string/login"
         android:background="@drawable/btn_orange_selector"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/text_size_normal"/>
+        android:textSize="@dimen/text_size_normal"
+        tools:ignore="SpUsage" />
 
 </LinearLayout>
