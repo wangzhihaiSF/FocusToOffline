@@ -85,10 +85,11 @@ public class LoginActivity extends BasicActivity implements View.OnClickListener
             case TAKE_PHOTO:
                 if (resultCode == RESULT_OK) {
                     try {
-                        //将怕死和的照片显示出来
+                        //将拍摄的照片显示出来
                         Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver()
                                 .openInputStream(imageUri));
                         userImage.setImageBitmap(bitmap);
+                        mPopWindow.dismiss();
                     }catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -113,7 +114,6 @@ public class LoginActivity extends BasicActivity implements View.OnClickListener
         Uri uri = data.getData();
         String imagePath = getImagePath(uri, null);
         displayImage(imagePath);
-
     }
 
     private void handleImageOnKitKat(Intent data) {
@@ -147,6 +147,7 @@ public class LoginActivity extends BasicActivity implements View.OnClickListener
         if (imagePath != null) {
             Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
             userImage.setImageBitmap(bitmap);
+            mPopWindow.dismiss();
         }else {
             Toast.makeText(this, "failed to get image", Toast.LENGTH_SHORT).show();
         }
@@ -217,6 +218,10 @@ public class LoginActivity extends BasicActivity implements View.OnClickListener
                 }else {
                     openAlbum();
                 }
+                break;
+            case R.id.pop_cancel:
+                mPopWindow.dismiss();
+
         }
 
     }
